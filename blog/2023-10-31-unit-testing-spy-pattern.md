@@ -29,7 +29,7 @@ So here are 2 examples where I often end up using the Test Spy Pattern. You can 
 FakeItEasy can't directly fake an HttpClient, the required methods aren't virtual or abstract so they recommend pretty much the same approach as I'm using, by making use of the HttpMessageHandler but they have to do a bit of [extra work](https://fakeiteasy.github.io/docs/7.4.0/Recipes/faking-http-client/) by calculating the call based on the return type and method name.  
 
 If I'm going to do extra magic, I'm going to do it in a way that's easier for me!  
-Here is my implementation of spying the HttpMessageHandler used by the HpptClient and how I can verify calls being made and mock values being returned.
+Here is my implementation of spying the HttpMessageHandler used by the HttpClient and how I can verify calls being made and mock values being returned.
 
 ```c#
 public class SpyHttpMessageHandler : HttpMessageHandler
