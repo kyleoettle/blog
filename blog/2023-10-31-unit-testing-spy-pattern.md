@@ -31,7 +31,7 @@ FakeItEasy can't directly fake an HttpClient, the required methods aren't virtua
 If I'm going to do extra magic, I'm going to do it in a way that's easier for me!  
 Here is my implementation of spying the HttpMessageHandler used by the HttpClient and how I can verify calls being made and mock values being returned.
 
-```c#
+```cs
 public class SpyHttpMessageHandler : HttpMessageHandler
 {
     internal Func<HttpRequestMessage, HttpResponseMessage> _sendAsync = null;
