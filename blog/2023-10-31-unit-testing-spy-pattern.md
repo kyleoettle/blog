@@ -49,7 +49,7 @@ I have a function called _sendAsync which I can use to verify the request being 
 
 And the way we use it in our unit test:
 
-```c#
+```csharp
 [Fact(DisplayName = "When getting WorldTimeByIP and the correct value is returned")]
 public async Task GetWorldTime()
 {
@@ -89,7 +89,7 @@ The FakeItEasy approach to faking calls to the ILogger isn't pretty and it's har
 
 Here is my implementation of spying the ILogger and how I can verify that the correct calls are being made.
 
-```c#
+```csharp
 public class SpyLogger<T> : ILogger<T>
 {
     public IDisposable BeginScope<TState>(TState state)
@@ -118,7 +118,7 @@ I have an action called _logInvoked which I can use to verify that the logger wa
 
 And the way we use it in our unit test:
 
-```C#
+```csharp
 [Fact(DisplayName = "When getting WorldTimeByIP and a failed status code is returned")]
 public async Task GetWorldTime_fail()
 {
