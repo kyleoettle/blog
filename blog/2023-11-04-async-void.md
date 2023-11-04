@@ -159,6 +159,7 @@ public async Task<IEnumerable<string>> GetAsyncTask()
 In this case my middleware caught it and you can see my custom error message `"Whoops, something went wrong!"` in the result.  
 This is great and I guess in 99% of cases what you want.
 
+![child-in-parent](/img/blog-images/async-void/async-await-task.png)
 
 ### Fire-and-forget async Task - Caught in TaskScheduler.UnobservedTaskException
 
@@ -180,8 +181,14 @@ public async Task<IEnumerable<string>> GetTask()
 }
 ```
 
-When calling the endpoint above, the demoValues are returned by the controller, but in my api's logs we could see the log from our TaskScheduler.UnobservedTaskException handler.  
- 
+When calling the endpoint above, the demoValues get returned by the controller as expected.
+
+![child-in-parent](/img/blog-images/async-void/async-task.png)
+
+But in my api's logs we could see the log from our TaskScheduler.UnobservedTaskException handler.  
+
+![child-in-parent](/img/blog-images/async-void/async-task-error.png)
+
 
 ### Fire-and-forget async void - Raised in AppDomain.UnhandledException and crashes
 
@@ -199,6 +206,20 @@ public async Task<IEnumerable<string>> GetAsyncVoid()
 }
 ```
 When making a call to our api it returns the demoValues correctly which was great.  
-Our `demoService.PerformVoidAsync` was an async void and as explained above, when an exception is thrown there is nowhere for the exception to go, so it went to hell and took our api with it!  
 
-In the AppDomain.UnhandledException handler we were able to log the exception, but by this time it's too late and our service crashes.  
+![child-in-parent](/img/blog-images/async-void/async-void.png)
+
+Our `demoService.PerformVoidAsync` was an async void and as explained above, when an exception was thrown, there was nowhere for the exception to go, so it went to hell and took our api with it!  
+
+In the AppDomain.UnhandledException handler in my demo I was able to log the exception, but by this time it's too late and the service will inevidibly crash.  
+
+Here you can see the api returned the expected result, and in the console window you can see the process exit at the end.
+
+![child-in-parent](/img/blog-images/async-void/async-void-error.png)
+
+
+### Key take aways
+- Never use async void.
+- If you want to fire and forget a Task, use TaskScheduler.UnobservedTaskException handler so that you can monitor unhandled exceptions in your Tasks.
+- Never use async void.
+- Never use async void.
