@@ -221,7 +221,7 @@ Here you can see the output from the console window and the exception I logged, 
 
 
 ### Key take aways
-- Never use async void.
+- Never use async void - use async Task.
 - If you want to fire and forget a Task, use TaskScheduler.UnobservedTaskException handler so that you can monitor unhandled exceptions in your Tasks.
 - Never use async void.
 - Never use async void.
