@@ -8,19 +8,19 @@ tags: [c#,.net, api, async]
 Hi Everyone :wave:
 
 A while ago we had the unfortunate event of breaking prod :open_mouth:  
-We made some small changes to our .net api, all tests passed, everything was good and the world slept peacefully that night, until we saw the service started going down seamingly at random! Turns out it wasn't random at all, it was a pesky async void which we missed changing to an async Task and it caused the entire service to come crumbling down.
+We made some small changes to our .net api, all tests passed, everything was good and the world slept peacefully that night, until we saw the service started going down seemingly at random! Turns out it wasn't random at all, it was a pesky async void which we missed changing to an async Task and it caused the entire service to come crumbling down.
 
-Most of us know that when you want to change a method from sync to async, you change the calls to an async Task, it's pretty simple and straight forwared, but we forgot to change one of the signatures from `void DoSomething()` to `async Task DoSomething()` and left it as `async void DoSomething()`
+Most of us know that when you want to change a method from sync to async, you change the calls to an async Task, it's pretty simple and straight forward, but we forgot to change one of the signatures from `void DoSomething()` to `async Task DoSomething()` and left it as `async void DoSomething()`
 
 "But Kyle, surely in an api the controller will just rethrow the error, right?" - Yes and no!  
-The problem is in the way that Tasks and voids propogate their exceptions, and the way we didn't await our call.    
+The problem is in the way that Tasks and voids propagate their exceptions, and the way we didn't await our call.    
 When an exception is thrown in an async Task, you can await the Task and the exception is captured in the Task's context, even if you don't await the task and it's "fire and forget", the exception is still captured in an anonymous Task's context.  
 With async void, there is no return type, it's always "fire and forget" and there is no place to capture the exception.  
 In short it causes an [exception in the ThreadPool which causes the application to crash](https://learn.microsoft.com/en-us/dotnet/standard/threading/exceptions-in-managed-threads?redirectedfrom=MSDN)
 
-Let's look at some example in my [github repo](https://github.com/kyleoettle/async-void-example) to explain some behavior.  
+Let's look at some examples in my [github repo](https://github.com/kyleoettle/async-void-example) to explain some behaviour.  
 
-I have a controller with 3 methods to demonstrate the different behavior
+I have a controller with 3 methods to demonstrate the different scenarios
 
 ```csharp
 [Route("[controller]/[action]")]
@@ -106,7 +106,7 @@ public class ExceptionMiddleware
 }
 ```
 
-I have some extra event handlers to demonstrate the fire and forget exception behavior
+I have some extra event handlers to demonstrate the fire and forget exception behaviour
 
 ```csharp
 TaskScheduler.UnobservedTaskException += (sender, e) =>
@@ -211,7 +211,7 @@ When making a call to our api it returns the demoValues correctly which was grea
 
 Our `demoService.PerformVoidAsync` was an async void and as explained above, when an exception was thrown, there was nowhere for the exception to go, so it went to hell and took our api with it!  
 
-In the AppDomain.UnhandledException handler in my demo I was able to log the exception, but by this time it's too late and the service will inevidibly crash.  
+In the AppDomain.UnhandledException handler in my demo I was able to log the exception, but by this time it's too late and the service will inevitably crash.  
 
 Here you can see the api returned the expected result, and in the console window you can see the process exit at the end.
 
