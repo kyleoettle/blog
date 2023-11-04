@@ -59,14 +59,15 @@ public class DemoController : ControllerBase
     }
 
     [HttpGet(Name = "GetVoidAsync")]
-        public async Task<IEnumerable<string>> GetAsyncVoid()
-        {
-            // fire and forget
-            // no await so exception will be logged in AppDomain.CurrentDomain.UnhandledException and crash
-            // demoValues will be returned
-            demoService.PerformVoidAsync();
-            return demoValues;
-        }
+    public async Task<IEnumerable<string>> GetAsyncVoid()
+    {
+        // fire and forget
+        // no await so exception will be logged in AppDomain.CurrentDomain.UnhandledException and crash
+        // demoValues will be returned
+        demoService.PerformVoidAsync();
+        return demoValues;
+    }
+}
 ```
 
 I have custom middleware to handle exceptions and do some fancy stuff
