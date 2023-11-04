@@ -156,7 +156,7 @@ public async Task<IEnumerable<string>> GetAsyncTask()
 }
 ```
 
-In this case my middleware caught it and you can see my custom error message `"Whoops, something went wrong!"` in the result.  
+In this case of calling the `GetTaskAsync` endpoint the middleware caught the error and you can see the custom error message `"Whoops, something went wrong!"` in the result.  
 This is great and I guess in 99% of cases what you want.
 
 ![child-in-parent](/img/blog-images/async-void/async-await-task.png)
@@ -181,11 +181,12 @@ public async Task<IEnumerable<string>> GetTask()
 }
 ```
 
-When calling the endpoint above, the demoValues get returned by the controller as expected.
+When calling the `GetTask` endpoint, the demoValues get returned by the controller as expected.
 
 ![child-in-parent](/img/blog-images/async-void/async-task.png)
 
-But in my api's logs we could see the log from our TaskScheduler.UnobservedTaskException handler.  
+But in the console output we could see the log from the TaskScheduler.UnobservedTaskException handler.  
+Without the UnobservedTaskException handler we would never have known about the exception in the Task.
 
 ![child-in-parent](/img/blog-images/async-void/async-task-error.png)
 
@@ -205,15 +206,15 @@ public async Task<IEnumerable<string>> GetAsyncVoid()
     return demoValues;
 }
 ```
-When making a call to our api it returns the demoValues correctly which was great.  
+When making a call to the `GetAsyncVoid` endpoint it returns the demoValues correctly which is great.  
 
 ![child-in-parent](/img/blog-images/async-void/async-void.png)
 
-Our `demoService.PerformVoidAsync` was an async void and as explained above, when an exception was thrown, there was nowhere for the exception to go, so it went to hell and took our api with it!  
+The `demoService.PerformVoidAsync` was an async void and as explained above, when an exception was thrown, there was nowhere for the exception to go, so it went to hell and took the service with it!  
 
 In the AppDomain.UnhandledException handler in my demo I was able to log the exception, but by this time it's too late and the service will inevitably crash.  
 
-Here you can see the api returned the expected result, and in the console window you can see the process exit at the end.
+Here you can see the output from the console window and the exception I logged, along with process exiting at the end.
 
 ![child-in-parent](/img/blog-images/async-void/async-void-error.png)
 
