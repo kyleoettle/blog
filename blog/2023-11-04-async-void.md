@@ -7,7 +7,7 @@ tags: [c#,.net, api, async]
 
 Hi Everyone :wave:
 
-A while ago we had the unfortunate event of breaking prod :suprised:  
+A while ago we had the unfortunate event of breaking prod :open_mouth:  
 We made some small changes to our .net api, all tests passed, everything was good and the world slept peacefully that night, until we saw the service started going down seamingly at random! Turns out it wasn't random at all, it was a pesky async void which we missed changing to an async Task and it caused the entire service to come crumbling down.
 
 Most of us know that when you want to change a method from sync to async, you change the calls to an async Task, it's pretty simple and straight forwared, but we forgot to change one of the signatures from `void DoSomething()` to `async Task DoSomething()` and left it as `async void DoSomething()`
