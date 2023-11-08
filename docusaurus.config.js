@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: "Along for the ride",
   tagline: "Snippits from a Software Engineer",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon_sa.ico",
 
   // Set the production url of your site here
   url: "https://your-docusaurus-test-site.com",
@@ -102,6 +102,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['csharp']
       },
     }),
 };

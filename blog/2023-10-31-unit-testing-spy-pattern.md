@@ -29,9 +29,9 @@ So here are 2 examples where I often end up using the Test Spy Pattern. You can 
 FakeItEasy can't directly fake an HttpClient, the required methods aren't virtual or abstract so they recommend pretty much the same approach as I'm using, by making use of the HttpMessageHandler but they have to do a bit of [extra work](https://fakeiteasy.github.io/docs/7.4.0/Recipes/faking-http-client/) by calculating the call based on the return type and method name.  
 
 If I'm going to do extra magic, I'm going to do it in a way that's easier for me!  
-Here is my implementation of spying the HttpMessageHandler used by the HpptClient and how I can verify calls being made and mock values being returned.
+Here is my implementation of spying the HttpMessageHandler used by the HttpClient and how I can verify calls being made and mock values being returned.
 
-```c#
+```cs
 public class SpyHttpMessageHandler : HttpMessageHandler
 {
     internal Func<HttpRequestMessage, HttpResponseMessage> _sendAsync = null;
@@ -49,7 +49,7 @@ I have a function called _sendAsync which I can use to verify the request being 
 
 And the way we use it in our unit test:
 
-```c#
+```csharp
 [Fact(DisplayName = "When getting WorldTimeByIP and the correct value is returned")]
 public async Task GetWorldTime()
 {
@@ -89,7 +89,7 @@ The FakeItEasy approach to faking calls to the ILogger isn't pretty and it's har
 
 Here is my implementation of spying the ILogger and how I can verify that the correct calls are being made.
 
-```c#
+```csharp
 public class SpyLogger<T> : ILogger<T>
 {
     public IDisposable BeginScope<TState>(TState state)
@@ -118,7 +118,7 @@ I have an action called _logInvoked which I can use to verify that the logger wa
 
 And the way we use it in our unit test:
 
-```C#
+```csharp
 [Fact(DisplayName = "When getting WorldTimeByIP and a failed status code is returned")]
 public async Task GetWorldTime_fail()
 {
