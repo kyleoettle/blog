@@ -37,5 +37,3 @@ Read along the next couple of episodes as I discuss what and how I built [budget
 Here are some screenshots of what it looks like, you're welcome to play around and sign up, `no bank account required.`
 
 You can register a mock account that will generate some test transactions that you can play with.
-
-Next up in budget speech, multi-multi tenant :grin:
