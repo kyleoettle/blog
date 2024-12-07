@@ -7,7 +7,7 @@ tags: [c#,.net, Enum, FlagsAttribute]
 
 Hi Everyone :wave:
 
-I made something cool! https://budgetspeech.cloud
+I made something cool! [budgetspeech](https://budgetspeech.cloud)
 
 I love personal finance, sometimes it can be hard, sometimes it can be stressful, but it's something all of us have to deal with in some capacity.
 
@@ -27,13 +27,15 @@ There are a few issues though...
 - I am a fan of [Vault22](https://www.vault22.io/) (formerly 22Seven) but it never really did what I wanted. When you go to Checkers you might buy food for yourself and dog food. They aren't both "groceries". One is "pets"
 - It's boring and I love coding.
 
-This is where https://budgetspeech.cloud comes in.
+This is where [budgetspeech](https://budgetspeech.cloud) comes in.
 
 I bank with [Investec](https://www.investec.com/) and they support [Open Banking](https://www.investec.com/en_gb/welcome-to-investec/digital/open-banking.html), and in South Africa they have a similar set of api's based on the same standard called [Programmable Banking](https://www.investec.com/en_za/banking/tech-professionals/programmable-banking.html)
 
 I decided to have fun, over engineer and play around while automating my Excel version of BudgetSpeech.  
-Read along the next couple of episodes as I discuss what and how I built https://budgetspeech.cloud.
+Read along the next couple of episodes as I discuss what and how I built [budgetspeech](https://budgetspeech.cloud).
 
-Here are some screenshots of what it looks like and you're welcome to play around and sign up, `no bank account required.`
+Here are some screenshots of what it looks like, you're welcome to play around and sign up, `no bank account required.`
 
 You can register a mock account that will generate some test transactions that you can play with.
+
+Next up in budget speech, multi-multi tenant :grin:

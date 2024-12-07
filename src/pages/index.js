@@ -35,6 +35,12 @@ function Home() {
                 Check out my blog
               </Link>
             </div>
+            <br/>
+            <div className={styles.buttons}>
+              <Link className="button button--secondary button--lg" href="https://budgetspeech.cloud/">
+                Check out BudgetSpeech
+              </Link>
+            </div>
           </div>
         </header>
         <main></main>
