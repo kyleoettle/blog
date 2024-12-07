@@ -1,6 +1,6 @@
 ---
 slug: async-void
-title: async (a)void
+title: Async (a)void
 authors: [kyleo]
 tags: [c#,.net, api, async]
 ---
