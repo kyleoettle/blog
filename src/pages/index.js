@@ -6,6 +6,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Head from "@docusaurus/Head";
 import styles from "./index.module.css";
+import HomepageFeatures from "../components/HomepageFeatures";
 
 function Home() {
   const imgUrl = useBaseUrl("img/profile.jpg");
@@ -34,16 +35,16 @@ function Home() {
               <Link className="button button--secondary button--lg" to="/blog">
                 Check out my blog
               </Link>
-            </div>
-            <br/>
-            <div className={styles.buttons}>
               <Link className="button button--secondary button--lg" href="https://budgetspeech.cloud/">
                 Check out BudgetSpeech
               </Link>
             </div>
+            <br/>
           </div>
         </header>
-        <main></main>
+        <main>
+          <HomepageFeatures />
+        </main>
       </Layout>
     </>
   );

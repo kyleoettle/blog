@@ -6,6 +6,20 @@
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 120px;
+  width: 120px;
+}
+
+@media screen and (max-width: 996px) {
+  .featureSvg {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featureSvg {
+    height: 80px;
+    width: 80px;
+  }
 }
