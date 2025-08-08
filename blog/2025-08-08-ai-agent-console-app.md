@@ -51,20 +51,25 @@ I ended up with three different agents so that they could focus on their specifi
 I figured that this would be good enought to see if I could get valueble feedback from the workflow, but to make this production ready, I would definitely make some improvements to the agents, their instructions and their context.
 
 **⭐ LangGraph Orchestration (Task.AwaitAll() in my console app)**  
-I really enjoyed spending time on thinking about this process, using LangGraph's StateGraph, and how I would sue this in a "real world" scenario.
-The interesting part was that just using InMemory state was probably good enough. This agent is supposed to execute fast, doesn't require any async execution or human in the loop. A pity, I would have loved to throw in CosmosDB to store the state.
+I really enjoyed spending time on thinking about this process, using LangGraph's StateGraph, and how I would use this in a "real world" scenario.
+The uninteresting part was that just using InMemory state was probably good enough. This agent is supposed to execute fast, doesn't require any async execution or human in the loop. A pity, I would have loved to throw in CosmosDB to store the state.
 Todo: Add some more content here.
 
-**⭐ Dual-Environment Support**
-Because I'm not made of money :wink:
-- **Local Development**: Ollama with phi4-mini - free and fast for tinkering
-- **Production**: Azure OpenAI with GPT-4o - when I need the big guns
+**⭐ Local Development**
+In your everyday development lifecycle you do most of your work locally - I wanted to make sure I could replicate that as closely as possible, while also having the option of playing with different llm models. I decided to go with the phi4-mini model running on Ollam. this model is free, fast and worked great for the simple requirements of my agent. 
 
-**🔒 Security-First Design**
+**Security-First~ish Design**
+We all know how important security is, and we all know how easy security is these days. Security should be a first class citizen in any code you write. I used the baked in tools like Azure KeyVault and a Managed Identity.  
+I decided to not add role based access control to my api because... 
+
+When it came to prompt injection, this is where I need to improve the agent.
+I decided to improve the context, and in so the quality of the review, as mentioned earlier I load a "pr_instructions.md" file from the repository the agent is reviewing.
+I considered adding a step to review the instruction file, but considering the use case is that you call the agent to review your own code, so you would only be injecting yourself? if this agent was a saas style service, then 100% add a step to review the instructions file 
+
 Look, I work at a bank, so I had to make it somewhat secure:
 - Azure Key Vault for secrets (because hardcoding is for amateurs)
 - Managed Identity authentication (zero secrets in code!)
-- Prompt injection protection (yes, people will try to hack your AI :roll_eyes:)
+- Prompt injection protection (yes, people will try tho hack your AI :roll_eyes:)
 
 ### How I Actually Built It
 
