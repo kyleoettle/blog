@@ -15,6 +15,8 @@ My wife and I have a bi-weekly meeting called :star: <b>Budget Speech </b> :star
 
 We have a big Excel document with all our budgets for different expenses and we track it throughout the month. This workes pretty great and we can be really specific about which expenses gets allocated against which category. This way we're always on the same page whether we're getting McDonalds on Friday, or if we should rather stick to the leftovers in the fridge.
 
+<!-- truncate -->
+
 Here is a small snippit of what the excel document used to look like
 ![child-in-parent](/img/blog-images/budgetspeech-introduction/budgetspeech-excel.png)
 

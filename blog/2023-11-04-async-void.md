@@ -12,6 +12,8 @@ We made some small changes to our .net api, all tests passed, everything was goo
 
 Most of us know that when you want to change a method from sync to async, you change the calls to an async Task, it's pretty simple and straight forward, but we forgot to change one of the signatures from `void DoSomething()` to `async Task DoSomething()` and left it as `async void DoSomething()`
 
+<!-- truncate -->
+
 "But Kyle, surely in an api the controller will just rethrow the error, right?" - Yes and no!  
 The problem is in the way that Tasks and voids propagate their exceptions, and the way we didn't await our call.    
 When an exception is thrown in an async Task, you can await the Task and the exception is captured in the Task's context, even if you don't await the task and it's "fire and forget", the exception is still captured in an anonymous Task's context.  

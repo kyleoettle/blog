@@ -15,6 +15,9 @@ I'm a fan of unit testing code for various reasons, mostly because I've felt the
 > The Test Spy is designed to act as an observation point by recording the method calls made to it by the SUT as it is exercised. During the result verification phase, the test compares the actual values passed to the Test Spy by the SUT with the values expected by the test.
 
 Okay I don't think my implemntation is exactly the classic Test Spy pattern, but close enough!  
+
+<!-- truncate -->
+
 I use functions or actions to verify that method was called correctly and I can easily inspect or set the return value in each test that sets up the function or action.
 
 The reason I use this pattern is because sometimes my framework of choice [FakeItEasy](https://fakeiteasy.github.io/), is not so easy :unamused:
