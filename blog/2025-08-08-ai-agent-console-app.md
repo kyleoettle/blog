@@ -60,16 +60,14 @@ In your everyday development lifecycle you do most of your work locally - I want
 
 **Security-First~ish Design**
 We all know how important security is, and we all know how easy security is these days. Security should be a first class citizen in any code you write. I used the baked in tools like Azure KeyVault and a Managed Identity.  
-I decided to not add role based access control to my api because... 
+I decided to not add role based access control to my api because I wasn't sure in what capacity an agent like this should be hosted, so I left the decision for when I need to make it.  
+if it's hosted within your organisation in Azure, Entra ID with RBAC makes 100% sense.  
+If you want to expose it as a SaaS, you might want to consider something else.  
+For demo purposes, I just left it out.
 
 When it came to prompt injection, this is where I need to improve the agent.
 I decided to improve the context, and in so the quality of the review, as mentioned earlier I load a "pr_instructions.md" file from the repository the agent is reviewing.
-I considered adding a step to review the instruction file, but considering the use case is that you call the agent to review your own code, so you would only be injecting yourself? if this agent was a saas style service, then 100% add a step to review the instructions file 
-
-Look, I work at a bank, so I had to make it somewhat secure:
-- Azure Key Vault for secrets (because hardcoding is for amateurs)
-- Managed Identity authentication (zero secrets in code!)
-- Prompt injection protection (yes, people will try tho hack your AI :roll_eyes:)
+I considered adding a step to review the instruction file, but considering the use case is that you call the agent to review your own code, so you would only be injecting yourself? If this agent was a SaaS style service, then 100% add a step to review the instructions file.
 
 ### How I Actually Built It
 
