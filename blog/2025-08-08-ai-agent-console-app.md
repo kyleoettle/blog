@@ -11,14 +11,13 @@ I built something cool! [AI Agents repository](https://github.com/kyleoettle/age
 
 Like everyone, I've been playing with AI Agents for a while now. I'm lucky enough that Investec allows, and encourages, us to adopt AI and use it to our advantage. But I've always thought there should be more to it. I wanted to see the 10x it promised.
 <!-- truncate -->
-Recently, I've been challenging myself whether we're I'm only using AI where I'm encouraged to use it - like GitHub Copilot - or if we can change our perspective and use it to impact the entire team or organisation.
-
+Recently, I've been challenging myself whether I'm only using AI where I'm encouraged to use it - like GitHub Copilot - or if we can change our perspective and use it to impact the entire team or organisation.
 
 ## The Evolution of the Console App
 
 Almost everyone reading this has probably built a console app - some probably hundreds of console apps :grinning:
 
-Recently, I've been thinking about how **Agents could be the next evolution of console apps we build.**
+I've been thinking about how **Agents could be the next evolution of console apps we build.**
 
 I don't mean using Agents to just search for certain keywords in a log file or build a CSV. Those are perfectly suited to a Console App. I mean in the sense that it should take me minutes or just a few hours to automate a very manual, repetitive, organization-wide task.
 
@@ -33,14 +32,14 @@ The result is [An AI Agent that can perform a code review and leave feedback](ht
 
 In the link I shared, I spent a few short hours spinning up a basic (and I mean really basic) Agent in Python that can perform a code review. But the results were pretty encouraging!
 
-## Building the Agent: With the same freedom when building a console app - fast and furious!
+## Building the Agent: With the same freedom as building a console app - fast and furious!
 
 ### The Architecture
 
 ![child-in-parent](/img/blog-images/ai-agent-console-app/agent-flow.svg)
-I tried to keep it simple and organic `//kyle did you just say "organic"? this isn't a tomato.` and let the agent evolve to fit my needs, no real pre-planning (just like my console apps)
+I tried to keep it simple and organic `//kyle did you just say "organic"? this isn't a tomato` and let the agent evolve to fit my needs, no real pre-planning (just like my console apps)
 
-I know with AI Agents that having multiple agents focus on smaller sub tasks typically outperforms a single agent trying to do everything.
+I know with AI Agents that having multiple agents focus on smaller sub tasks outperforms a single agent trying to do everything.
 
 **⭐ Multi-Agent Review System (async tasks in my console app)**  
 I ended up with three different agents so that they could focus on their specific tasks:
@@ -50,33 +49,56 @@ I ended up with three different agents so that they could focus on their specifi
 
 I figured that this would be good enought to see if I could get valueble feedback from the workflow, but to make this production ready, I would definitely make some improvements to the agents, their instructions and their context.
 
-**⭐ LangGraph Orchestration (Task.AwaitAll() in my console app)**  
-I really enjoyed spending time on thinking about this process, using LangGraph's StateGraph, and how I would sue this in a "real world" scenario.
-The interesting part was that just using InMemory state was probably good enough. This agent is supposed to execute fast, doesn't require any async execution or human in the loop. A pity, I would have loved to throw in CosmosDB to store the state.
-Todo: Add some more content here.
+**⭐ StateGraph (Static Dictionary in my console app)**  
+I really enjoyed spending time on thinking about this process, using LangGraph's StateGraph, and how I would use this in a "real world" scenario.  
+The interesting part was that just using InMemory state was probably good enough.  
+This agent is supposed to execute fast, doesn't require any async execution or human in the loop.  
+A pity, I would have loved to throw in CosmosDB to store the state.  
 
-**⭐ Dual-Environment Support**
-Because I'm not made of money :wink:
-- **Local Development**: Ollama with phi4-mini - free and fast for tinkering
-- **Production**: Azure OpenAI with GPT-4o - when I need the big guns
+One of the concepts I wanted to test was to see if I could make the reviews more meaningfull by passing in an instruction file from the repository linked to the code review.  
+Like mentioned above, I just stored the the state InMemory and as agents completed, I stored their state in the same object to be used by the Summarizer agent.
+![child-in-parent](/img/blog-images/ai-agent-console-app/state-flow.svg)
 
-**🔒 Security-First Design**
-Look, I work at a bank, so I had to make it somewhat secure:
-- Azure Key Vault for secrets (because hardcoding is for amateurs)
-- Managed Identity authentication (zero secrets in code!)
-- Prompt injection protection (yes, people will try to hack your AI :roll_eyes:)
 
-### How I Actually Built It
+**⭐ Local development & cloud deployment**  
+When you build a console app, you run it locally, but the truely special ones might make it to a different environment, so I wanted to test both, and for this scenario it made sense to support cloud deployments - it wouldn't make sense to run an agent locally for code reviews.
+- **Local Development**: Ollama with phi4-mini - free and fast for getting started
+- **Cloud Deployment**: Azure OpenAI with GPT-4o - to be honest, this was the model that came out of the box with the azd template so why not.
 
-Here's the thing that surprised me - building an AI agent isn't like building a normal app. I had to completely change how I approach development.
+**⭐ Secure~ish Design**  
+Security comes out of the box for any cloud platforms and I made use of the basics
+- **Azure Key Vault** for secrets
+- **Managed Identity** to access Azure resources
 
-I ended up creating this super structured workflow that breaks everything into three phases:
+Some of the things I didn't do:
+- **Api authentication** - Allowing unauthorized users to call your api is 99% of times a very bad idea. It opens up the api to spamming innocent pull requests with code reviews `But Kyle, you can trust strangers on the internet, no?` and in the process leaving you with a huge bill and embarrasment. This being a POC, Authentication wasn't something that I wanted to prove, so I skipped it for now.
+- **Prompt injection protection** - and this is where I should probably spend some more time. Due to the design of the agent, it tries to read a "pr_instructions.md" file from the repo it's about to review for custom instructions. My first thought was that this should be okay, considering you're reviewing your own code, you would only be injecting yourself - but security is only as strong as your weakest link and if a malicious user got access to the PR agent, it could probably do some real damage.
 
-1. **Requirements Gathering** - What exactly am I trying to solve here?
-2. **Prompt Engineering** - How do I explain to the AI what I want without confusing it?
-3. **Implementation Planning** - How do I actually make this thing work reliably?
+### What I learned
 
-Honestly, the prompt engineering part was way harder than I thought it would be. You can't just say "review this code" and expect magic. You have to be really specific about what you want, how you want it formatted, what to focus on... it's like training a very smart but very literal intern :laughing:
+What really surprised me while building the agent was how easy it was to get *something* up and running really quickly.  
+And this probably isn't specific to Python and LangGraph, it could have been C# and Semantic Kernel, or AWS instead of Azure.  Much like a console app, these tools all feel well supported, easy to use and fit right into your current ecosystem.  
+I didn't have to dig deep or search far to get something working, all I had to do was try.  
+
+Some more AI Agent related lessons that I learned:
+- **All LLMs aren't created equal** - There are real different in their responses, even with just the default settings, to get real value out of an AI Agent, you probably need to tweak it's settings a bit.
+- **Fine tuning your prompts really matter** - I played with a few different prompts and they evolved over time. I wish I saved my first and last prompt (or code reviews) to show the difference. From a complete failure to something providing real value.
+- **Your agents can be more specific than you think** - While I was creating this proof of concept I kept on thinking about adding more instructions or context to an agent, and the thoughts quickly turned to "what different agents could I add". I'm lucky that I work with some incredibly smart engineers, and maybe I could try and mimic some of them, instead of a more generic "Security Reviewer" agent.
+
+## What's next for my code review agent.
+- **Improving the context with function calling** - When I do a code review I often look at the rest of the file to gain more context. Loading all the files into the prompt from the start seems like a bad idea, but using function calling to load specific files if they require more context might be a great way of allowing the Agents to perform better code reviews.
+- **Recreating a team member** - One idea I want to test is recreating one of our engineers by loading all of their previous code reviews into a vector database and exposing it to the Agent. If we want value out of these code reviews, how about "training" it on the best reviewers in the team.
+## Final Thoughts
+
+Most organisations have had to migrate from one code repository to another, from GitHub to ADO, from BitBucket to GitHub, from SVN to where ever.  
+Most organisations also had to rebuild their build and release pipelines from... you get the picture.
+
+Along with code reviews, these are all very repeatable tasks that follow the same patterns and are ideal of AI Agents.  
+If you're challenged with rebuilding 200 pipelines, will it be worth spending 10% of the time creating an Agent and letting it do all the hard work?
+
+I think I proved to some degree that AI Agents can be a valueble tool in the everyday developer playbook.
+It takes a bit of time to set up your first agent, the next one is faster, the third one feels like a real console app.  
+For organisations that require more governance, I can see setting up a sandbox environment or template with built in auditing and security being a good way to enable the organisations to iterate faster in a safe manner.
 
 ## The Real Impact: This is where it gets exciting!
 
