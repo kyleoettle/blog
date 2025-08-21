@@ -1,13 +1,14 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Along for the ride",
-  tagline: "Snippits from a Software Engineer",
+  title: "Kyle Oettlé",
+  tagline: "Sharing my thoughts, one commit at a time",
   favicon: "img/favicon_sa.ico",
 
   // Set the production url of your site here
@@ -71,6 +72,11 @@ const config = {
           {
             to: "/blog",
             label: "Blog",
+            position: "left",
+          },
+          {
+            href: "https://budgetspeech.cloud/",
+            label: "BudgetSpeech",
             position: "left",
           },
           {

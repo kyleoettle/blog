@@ -1,6 +1,6 @@
 ---
 slug: async-void
-title: async (a)void
+title: Async (a)void
 authors: [kyleo]
 tags: [c#,.net, api, async]
 ---
@@ -11,6 +11,8 @@ A while ago we had the unfortunate event of breaking prod :open_mouth:
 We made some small changes to our .net api, all tests passed, everything was good and the world slept peacefully that night, until we saw the service started going down seemingly at random! Turns out it wasn't random at all, it was a pesky async void which we missed changing to an async Task and it caused the entire service to come crumbling down.
 
 Most of us know that when you want to change a method from sync to async, you change the calls to an async Task, it's pretty simple and straight forward, but we forgot to change one of the signatures from `void DoSomething()` to `async Task DoSomething()` and left it as `async void DoSomething()`
+
+<!-- truncate -->
 
 "But Kyle, surely in an api the controller will just rethrow the error, right?" - Yes and no!  
 The problem is in the way that Tasks and voids propagate their exceptions, and the way we didn't await our call.    

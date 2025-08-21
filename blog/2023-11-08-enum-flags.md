@@ -12,6 +12,8 @@ One of the lesser known but my favorite features of Enums are [Flags](https://le
 Enums are usually used to indicate a single option, like a day of the week, your favorite colour, pizza size... We all get it, we've all used it, but how often have you seen an array of Enums being passed around in your code?  
 There was probably a good reason for it if you have. Maybe an array of features, an array of preferred contact methods, supported payment methods?  This is what's really cool about Flags, You can capture a selection of enums in a single value :satisfied:
 
+<!-- truncate -->
+
 Here is the code in my [Github repo](https://github.com/kyleoettle/example-enum-flags) that you can check out.
 
 Lets create an enum to store a list of client preferences.
