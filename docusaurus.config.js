@@ -75,7 +75,7 @@ const config = {
             position: "left",
           },
           {
-            href: "https://budgetspeech.cloud/",
+            href: "https://app.budgetspeech.com/",
             label: "BudgetSpeech",
             position: "left",
           },
