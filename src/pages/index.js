@@ -35,7 +35,7 @@ function Home() {
               <Link className="button button--secondary button--lg" to="/blog">
                 Check out my blog
               </Link>
-              <Link className="button button--secondary button--lg" href="https://budgetspeech.cloud/">
+              <Link className="button button--secondary button--lg" href="https://app.budgetspeech.com/">
                 Check out BudgetSpeech
               </Link>
             </div>
