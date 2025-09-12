@@ -9,26 +9,23 @@ Hi Everyone :wave:
 
 I want to share a lesson I learned about burnout, from my sister's swimming!
 
-We've all felt the effects of being burned out, overstretched, juggling too many things, pushing too hard - it's hard to always see it coming, and it's never fun when it hits you.
+We've all felt the effects of being burned out, overstretched, juggling too many things, pushing ourselves too hard - it's hard to always see it coming, and it's never fun when it hits you.  
 
-Burnout can happen for a bunch of different reasons.
-Workload
-Personal things at home
-Physical things
-Traffic
-Young, old,
-It happens, and it's part of why we have leave and should take it.
+Burnout can happen for a bunch of different reasons, at work you might be wearing too many different hats and trying to fill too many gaps, entering a stressful period or working with certain people who cause you stres, taking on too much work for an unrealistic deadline. It can even be as simple as you've just been working too long without a break.  
+At home you might have personal circumstances that require more of you than usual, stressful life events, physical changes or stressors - we've all experienced what a few consecutive days with bad sleep can do to us 😂  
+
 
 My sister told me a story of how her swim training made the preverbial penny drop on how burnout can look without you even noticing it.
 
-The lesson...
+The lesson...  
 <!-- truncate -->
 
-Swim lesson - at the end 4 laps slow, 4 laps medium, 4 laps full out.
-She was swimming along nicely, conserving her energy, feeling good.
-Pushing a little bit, felt like she was in her sweet spot, getting a bit tired but managable.
-Pushed her hardest, felt like she was giving everything, kicking extra hard and 100% focus.
-When she compared her times, her last 4 laps which were full out were slower than her first 4 slow laps
+My sister joined a swim club a while ago, during one particular session, as they approached the back end - they had to do 4 slow laps, 4 medium laps and end with 4 laps swimming full out.  
+Great, she thought, little bit of planning and she can smash this!  
+She was swimming along nicely in the first 4 laps, conserving her energy, feeling good.  
+The next 4 laps she started pushing a bit, she felt like she was in her sweet spot, getting a bit tired but managable, it's only 4 laps, how tired could it make her?  
+Next was the hard laps, she pushed her hardest, it felt like she was giving everything, kicking extra hard and being ultra focused on her effort, her technique, her breathing, she was absolutely smashing it - or so she thought.  
+Afterwards when she compared her times, her last 4 laps which were full out were slower than her first 4 slow laps
 Shocked pikachu.
 
 This is when burnout truely made sense to her - when she could see the full picture evolve within a few minutes.
