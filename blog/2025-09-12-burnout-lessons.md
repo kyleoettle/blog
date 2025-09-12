@@ -25,11 +25,18 @@ Great, she thought, little bit of planning and she can smash this!
 She was swimming along nicely in the first 4 laps, conserving her energy, feeling good.  
 The next 4 laps she started pushing a bit, she felt like she was in her sweet spot, getting a bit tired but managable, it's only 4 laps, how tired could it make her?  
 Next was the hard laps, she pushed her hardest, it felt like she was giving everything, kicking extra hard and being ultra focused on her effort, her technique, her breathing, she was absolutely smashing it - or so she thought.  
-Afterwards when she compared her times, her last 4 laps which were full out were slower than her first 4 slow laps
+
+Afterwards when she compared her times, her last 4 laps where she gave her everything - were slower than her first 4 slow laps 😦
 Shocked pikachu.
 
-This is when burnout truely made sense to her - when she could see the full picture evolve within a few minutes.
-What happened was she was working at a maintainable pace, she was happy, stressors are normal, you push harder, you give your best and by the end your best is worse than you barely trying.
+This is when burnout truely made sense to her - a few minutes in a pool painted a picture that we often don't see in the workplace because burnout doesn't usually happen overnight, it's days, weeks or months.  
+What happened was she was working at a maintainable pace, she was happy, stressors were normal but increasing. As she pushed harder, she had to keep on pushing harder, she gave her best but by the end her best eas worse than her barely trying.
+
+Her story really made me think and reflect on my own experiences (and sometimes bad habits)
+
+I remember starting a new project, and every little bump in the road upset me, I started to take it personally, pushed even harder and it got to a point where it affected me at home, my sleep, my physical health. I took a week of leave, focused on myself, enjoying every day and spending my quality time with my family. When I got back to work, nothing burned down, the project was still on track, some of the same bumps were still there - but they were easy to deal with and no problem at all 😂
+
+I'd like to leave you with this.
 
 Have you been at work, working extra hours, pushing a deadline, trying to show up for your team, trying to finish off just this one more thing. Life happens, you can't truely split your work and life from each other, and your work will impact your life just as much as your life will impact your work.
 
