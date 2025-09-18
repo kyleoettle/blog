@@ -29,7 +29,7 @@ Next was the hard laps, she pushed her hardest, it felt like she was giving ever
 Afterwards when she compared her times, her last 4 laps when she gave her everything - were slower than her first 4 slow laps 😦
 
 This is when burnout truly made sense to her - a few minutes in a pool painted a picture that we often don't see in the workplace because burnout doesn't usually happen overnight, it's days, weeks or months.  
-What happened was she was working at a maintainable pace, she was happy, stressors were normal but increasing. As she pushed harder, she had to keep on pushing harder, she gave her best but by the end her best was worse than her barely trying.
+What happened was she was working at a maintainable pace, she was happy, stressors were normal but increasing. As she pushed harder, she had to keep on pushing harder, she gave her best but by the end her best was worse than her barely trying. That's the thing about burnout, it takes so much more from you to deal with the basics, nevermind performing well.
 
 Her story really made me think and reflect on my own experiences (and sometimes bad habits)
 
@@ -38,7 +38,7 @@ I remember starting a new project, and every little bump in the road upset me, I
 I'd like to leave you with this.
 
 Have you been feeling frustrated, your goal always just out of reach, like all you need to do is push a little bit harder, `and this is the 3rd time you're just pushing harder`? 
-Have you considered that maybe you're on your last 4 laps?  
+Have you considered that maybe you're on your last 4 laps and you're burned out?  
 
 Sometimes the best way forward isn't pushing harder, it's taking a break.
 
