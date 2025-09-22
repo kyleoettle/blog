@@ -48,7 +48,7 @@ This shows you how the users and groups you configure within the Targeted filter
 This was really cool to see and slightly more than I was expecting!  
 
 I don't see myself needing a feature flag where I want to exclude users, exclude groups, Include users, include groups, and have a percentage weight to it.  
-My imagination stopped at
+My requirements stopped at
 - `on for everyone, but exclude these users and groups` and 
 - `off for everyone, but include these users and groups`  
 
@@ -85,12 +85,13 @@ builder.Services.AddFeatureManagement()
 //register the AzureAppConfigurationRefresherProvider services that's required for automatic refresh.
 builder.Services.AddAzureAppConfiguration();
 ```
-This looks pretty standard and matches what the documentation provided. `Why the long blog post then bro?`  
+This looks pretty standard and matches what the documentation provided. `So why the long blog post?`  
 
 You can see I added the Azure App Configuration and set the RefreshInterval.  
-Although the default is 30 seconds anyway, I like explicitly setting these values to create visibility for myself or the team I'm working with - not everyone has the same context.  
+Although the default is 30 seconds anyway, I like to set thes values explicitly.  
+It creates visibility for myself or the team - since not everyone has the same context.  
 
-When initially testing it ou it wasn't obvious to me yet, but `builder.Services.AddFeatureManagement()` registered the services as Singleton services. More about it later.  
+When initially testing it out it wasn't obvious to me yet, but `builder.Services.AddFeatureManagement()` registered the services as Singleton services. More about it later.  
 
 The `builder.Services.AddAzureAppConfiguration()` ensures the RefreshProvider is loaded which will be required by the middleware that I register next.
 
